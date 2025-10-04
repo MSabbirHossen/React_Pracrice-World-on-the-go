@@ -1,7 +1,25 @@
 .country {
-  border: 2px solid yellow;
+  border: 2px solid rgba(255, 99, 71, 0.5);
   width: 350px;
+  height: ;
+  :350px ;
   border-radius: 1rem;
   padding: 1rem;
   margin: 1rem;
+}
+img {
+  border-radius: 1rem;
+  width: 330px;
+  height: 180px;
+
+  padding: 0.6rem;
+}
+
+.visited-country {
+  background-color: cadetblue;
+  color: black;
+  border: none;
+}
+.visited-btn {
+  transform: translate(250px, 0px);
 }

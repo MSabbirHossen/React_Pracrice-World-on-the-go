@@ -3,7 +3,9 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-* {
+h1,
+h3,
+p {
   text-align: center;
 }
 
