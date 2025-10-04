@@ -1,3 +1,11 @@
+# live: links
+
+## GitHub Pages: https://msabbirhossen.github.io/React_Pracrice-World-on-the-go/
+
+## Netlify :
+
+##
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
