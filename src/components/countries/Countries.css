@@ -1,0 +1,13 @@
+.countries {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+* {
+  text-align: center;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up)
+@media (min-width: 600px) {
+  grid-template-columns repeat(1, 1fr);
+} */

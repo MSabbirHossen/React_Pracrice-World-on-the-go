@@ -1,0 +1,7 @@
+.country {
+  border: 2px solid yellow;
+  width: 350px;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+}
