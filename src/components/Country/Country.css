@@ -11,8 +11,7 @@ img {
   border-radius: 1rem;
   width: 330px;
   height: 180px;
-
-  padding: 0.6rem;
+  align-self: center;
 }
 
 .visited-country {
