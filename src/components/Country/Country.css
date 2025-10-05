@@ -1,17 +1,19 @@
 .country {
   border: 2px solid rgba(255, 99, 71, 0.5);
-  width: 350px;
-  height: ;
-  :350px ;
+  width: 300px;
   border-radius: 1rem;
   padding: 1rem;
-  margin: 1rem;
+  /* margin: // */
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 img {
   border-radius: 1rem;
-  width: 330px;
+  width: 280px;
   height: 180px;
-  align-self: center;
+  margin: 0 auto;
 }
 
 .visited-country {
@@ -19,6 +21,6 @@ img {
   color: black;
   border: none;
 }
-.visited-btn {
+/* .visited-btn {
   transform: translate(250px, 0px);
-}
+} */
