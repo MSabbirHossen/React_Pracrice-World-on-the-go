@@ -3,7 +3,9 @@ import "./Country.css";
 
 const Country = ({
   country,
-  handlevisitedCountries: handleVisitedCountries,
+  handleVisitedCountries,
+
+  handleVisitedFlags,
 }) => {
   const [visited, setVisited] = useState(false);
   // console.log(country);
@@ -13,6 +15,11 @@ const Country = ({
     handleVisitedCountries(country);
   };
 
+  const [flags, setFlags] = useState(false);
+  const handleFlagBtn = () => {
+    setFlags(!flags);
+    handleVisitedFlags(country.flags.flags.png);
+  };
   return (
     <div className={`country ${visited && "visited-country"}`}>
       <img src={country.flags.flags.png} alt={country.flags.flags.alt} />
@@ -27,6 +34,9 @@ const Country = ({
       <p>Total Population: {country.population.population}</p>
       <button className={`${visited && "visited-btn"}`} onClick={handelClicked}>
         {visited ? "Visited" : "Not Visited"}
+      </button>
+      <button onClick={() => handleFlagBtn(country.flags.flags.png)}>
+        {flags ? "Flag Added" : "Add Visited flags"}
       </button>
     </div>
   );

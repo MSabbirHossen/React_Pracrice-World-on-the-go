@@ -1,6 +1,9 @@
 .countries {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 h1,
@@ -9,7 +12,28 @@ p {
   text-align: center;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up)
-@media (min-width: 600px) {
-  grid-template-columns repeat(1, 1fr);
-} */
+.card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 10px;
+  border: 2px solid burlywood;
+  border-radius: 1rem;
+}
+
+.visited-flags-container img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 600px) {
+  .countries {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 10px;
+  }
+}
