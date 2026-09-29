@@ -24,22 +24,34 @@ const Country = ({
     <div className={`country ${visited && "visited-country"}`}>
       <img src={country.flags.flags.png} alt={country.flags.flags.alt} />
       <h2>Name: {country.name.common}</h2>
-      <h4>Capital: {country.capital.capital}</h4>
+      <h4>Capital: {country.capital[0]}</h4>
       <p>
-        Area: {country.area.area}
-        {" ("}
-        {country.area.area > 300000 ? "BIG Land" : "Small Land"}
-        {") "}
+        Area: {(country.area / 1000).toFixed(0)}k km²
+        <span
+          className={`land-badge ${country.area > 300000 ? "big" : "small"}`}
+        >
+          {country.area > 300000 ? "🌍 Big Land" : "🏝️ Small Land"}
+        </span>
       </p>
-      <p>Total Population: {country.population.population}</p>
-      <button className={`${visited && "visited-btn"}`} onClick={handelClicked}>
-        {visited ? "Visited" : "Not Visited"}
-      </button>
-      <button onClick={() => handleFlagBtn(country.flags.flags.png)}>
-        {flags ? "Flag Added" : "Add Visited flags"}
-      </button>
+      <p>Population: {(country.population / 1000000).toFixed(1)}M</p>
+
+      <div className="button-container">
+        <button
+          className={`${visited && "visited-btn"}`}
+          onClick={handelClicked}
+        >
+          {visited ? "✓ Visited" : "Mark Visited"}
+        </button>
+        <button
+          className="flag-btn"
+          onClick={() => handleFlagBtn(country.flags.flags.png)}
+        >
+          {flags ? "✓ Added" : "Add Flag"}
+        </button>
+      </div>
     </div>
   );
 };
 
 export default Country;
+
