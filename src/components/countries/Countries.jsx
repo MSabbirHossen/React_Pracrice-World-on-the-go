@@ -24,29 +24,59 @@ const Countries = ({ countriesPromise }) => {
 
   return (
     <>
-      <h1>Here {countries.length} countries data available.</h1>
-      <h3>Visited: {visitedCountries.length}</h3>
-      <ol className="card">
-        {visitedCountries.map((country, index) => (
-          <li key={index}>{country.name.common} </li>
-        ))}
-      </ol>
-      <h3>Visited Flags: {visitedFlags.length}</h3>
-      <div className="visited-flags-container">
-        {visitedFlags.map((flag, index) => (
-          <img key={index} src={flag} alt=""></img>
-        ))}
+      <h1>🌍 Explore the World</h1>
+
+      {/* Stats Section */}
+      <div className="stats-header">
+        <div className="stat-item">
+          <h3>Total Countries</h3>
+          <div className="count">{countries.length}</div>
+        </div>
+        <div className="stat-item">
+          <h3>Visited</h3>
+          <div className="count">{visitedCountries.length}</div>
+        </div>
+        <div className="stat-item">
+          <h3>Not Visited</h3>
+          <div className="count">
+            {countries.length - visitedCountries.length}
+          </div>
+        </div>
       </div>
 
-      <h3>Not Visited: {countries.length - visitedCountries.length}</h3>
+      {/* Visited Countries Section */}
+      {visitedCountries.length > 0 && (
+        <div className="visited-section">
+          <h3>✅ Visited Countries</h3>
+          <ol className="visited-list">
+            {visitedCountries.map((country, index) => (
+              <li key={index}>{country.name.common}</li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      {/* Flag Gallery Section */}
+      {visitedFlags.length > 0 && (
+        <div className="flags-section">
+          <h3>🚩 Visited Flags ({visitedFlags.length})</h3>
+          <div className="visited-flags-container">
+            {visitedFlags.map((flag, index) => (
+              <img key={index} src={flag} alt="visited flag" />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Countries Grid */}
       <div className="countries">
         {countries.map((country) => (
           <Country
-            key={country.cca3.cca3}
+            key={country.cca3}
             country={country}
             handleVisitedCountries={handleVisitedCountries}
             handleVisitedFlags={handleVisitedFlags}
-          ></Country>
+          />
         ))}
       </div>
     </>

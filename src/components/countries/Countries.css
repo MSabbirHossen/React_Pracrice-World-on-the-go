@@ -1,40 +1,227 @@
-.countries {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 1rem auto;
-
-  /* justify-content: center; */
-  /* align-items: center; */
+/* Section Container */
+.countries-section {
+  margin-bottom: var(--spacing-2xl);
 }
 
-h1,
-h3,
-p {
+/* Statistics Headers */
+.stats-header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  background: var(--bg-primary);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-item {
   text-align: center;
+  flex: 1;
+  min-width: 120px;
 }
 
-.card {
+.stat-item h3 {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-item .count {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Visited Countries Section */
+.visited-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.visited-section h3 {
+  padding-bottom: var(--spacing-md);
+  border-bottom: 3px solid var(--primary);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.visited-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 10px;
-  border: 2px solid burlywood;
-  border-radius: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-primary);
+  border-radius: 12px;
+  min-height: 80px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.visited-list li {
+  padding: var(--spacing-md);
+  background: linear-gradient(
+    135deg,
+    var(--bg-secondary) 0%,
+    var(--bg-tertiary) 100%
+  );
+  border-left: 4px solid var(--success);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  list-style: none;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.visited-list li:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--success-light);
+}
+
+/* Visited Flags Section */
+.flags-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.flags-section h3 {
+  padding-bottom: var(--spacing-md);
+  border-bottom: 3px solid var(--accent);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.visited-flags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  min-height: 80px;
+  align-content: flex-start;
+  box-shadow: var(--shadow-sm);
 }
 
 .visited-flags-container img {
   width: 80px;
   height: 80px;
-  margin-right: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  object-fit: cover;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+.visited-flags-container img:hover {
+  transform: scale(1.12) rotate(-2deg);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Countries Grid */
+.countries {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+/* Section Titles */
+h1 {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  font-size: 3rem;
+}
+
+h3 {
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .countries {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .countries {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .stats-header {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+  }
+
+  .stat-item {
+    min-width: 100px;
+  }
+
+  .stat-item .count {
+    font-size: 2rem;
+  }
+
+  .visited-list {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 600px) {
   .countries {
     grid-template-columns: repeat(1, 1fr);
+    gap: var(--spacing-md);
   }
 
-  .card {
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 10px;
+  .stats-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+
+  .stat-item {
+    min-width: auto;
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: 8px;
+  }
+
+  .visited-flags-container {
+    gap: var(--spacing-sm);
+  }
+
+  .visited-flags-container img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .visited-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  h3 {
+    font-size: 1rem;
   }
 }
